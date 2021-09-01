@@ -1,0 +1,114 @@
+.header {
+
+    position: sticky;
+    top: 0;
+    height: 50px;
+    background-color: black;
+    z-index: 100;
+    width: 100%;
+    box-shadow: 0 6px 11px -9px rgba(0, 0, 0, 0.25);
+}
+
+.brand {
+    top: -15px;
+    position: absolute;
+    height: 75px;
+    width: 300px;
+    margin-left: 10px;
+    display: inline;
+}
+.brand > h1{
+    color: white;
+}
+
+.brand > img{
+    height: 75px;
+    width: 75px;
+    cursor: pointer;
+}
+
+.linkContainer{
+    position: relative;
+    margin-left: 100px;
+    top: 15px;
+    left: 150px;
+
+}
+
+.links{
+
+    position: relative;
+    display: inline;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+.links > a{
+color: white;
+    text-decoration: none;
+}
+
+.links > a:hover{
+    color: rgba(129,1,0,1);
+    text-decoration: none;
+}
+
+
+.headerLeft{
+    display: flex;
+    float: right;
+    margin-right: 15px;
+    position: relative;
+    bottom: 5px;
+
+}
+.number{
+    width: 120px;
+
+}
+
+.number > h4{
+    position: relative;
+    font-size: 16px;
+    color: white;
+    top: 5px;
+
+}
+
+.hamburger{
+    display: none;
+}
+
+
+@media screen and (max-width: 600px) {
+    .links{
+        display: none;
+    }
+    .headerLeft{
+        display: flex;
+        float: right;
+        margin-right: 15px;
+        position: relative;
+        bottom: 5px;
+
+    }
+    .number{
+        width: 120px;
+        margin-right: 5px;
+    }
+
+    .number > h4{
+        position: relative;
+        font-size: 16px;
+        color: white;
+        top: 5px;
+    }
+
+    .hamburger{
+        display: contents;
+        width: 30px;
+        height: auto;
+        cursor: pointer;
+    }
+}
+

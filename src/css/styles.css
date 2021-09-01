@@ -1,0 +1,143 @@
+.page_container {
+    min-height: calc(100vh - 50px); /* Minus the Header(0) and Footer(0) */
+
+    width: 100%;
+}
+
+.content_container{
+    width: calc(100% - 30px);
+    max-width: 1000px;
+    margin: auto auto;
+    padding: 15px;
+}
+
+* > h1{
+    font-size: 30px;
+    padding: 10px 0 0 0;
+    margin: 10px 0 10px 0;
+}
+* > h2{
+    font-size: 25px;
+    padding: 0 0 0 0;
+    margin: 10px 0 10px 0;
+}
+* > h3{
+    font-size: 22px;
+    padding: 0 0 0 0;
+    margin: 5px 0 5px 0;
+}
+* > h4{
+    font-size: 18px;
+    padding: 0 0 0 0;
+    margin: 8px 0 8px 0;
+}
+
+.right{
+    float: right;
+}
+
+.inline{
+    display: inline;
+}
+
+.char25{
+    width: 27ch;
+}
+
+.marginLeft{
+    margin-left: 15px;
+}
+
+.month_box{
+    margin: 20px;
+    border: 1px black solid;
+    border-radius: 15px;
+    padding: 0 20px 10px 20px;
+}
+
+.month_header{
+    margin: 10px 0px 0 0px;
+    padding: 0px 0px 0px 0px;
+
+}
+
+td > h3{
+    font-size: 20px;
+    margin: 5px 0 5px 0;
+    padding: 0 0 0 0;
+}
+
+
+.stats_box{
+    margin: 10px 20px 10px 20px;
+    padding: 5px 15px 5px 15px;
+    border: 1px black solid;
+    border-radius: 15px;
+}
+
+.stats_table{
+    width: 100%;
+    padding: 0px;
+    margin: 0;
+
+}
+
+
+.alignLeft{
+    text-align: left;
+}
+
+.alignCenter{
+    text-align: center;
+}
+
+
+
+@media only screen and (max-width: 400px) {
+    * > h1{
+        font-size: 25px;
+        padding: 0 0 0 0;
+        margin: 10px 0 0 0;
+    }
+    * > h2{
+        font-size: 20px;
+        padding: 0 0 0 0;
+        margin: 5px 0 0 0;
+    }
+    * > h3{
+        font-size: 18px;
+        padding: 0 0 0 0;
+        margin: 5px 0 0 0;
+    }
+    * > h4{
+        font-size: 16px;
+        padding: 0 0 0 0;
+        margin: 8px 0 8px 0;
+    }
+
+
+    .month_box{
+        margin: 5px;
+        border: 1px black solid;
+        border-radius: 15px;
+        padding: 5px;
+    }
+
+    .month_header{
+        margin: 10px 5px 0 5px;
+        padding: 0 0 0 0;
+
+    }
+
+    .stats_box{
+        margin: 10px 5px 10px 5px;
+        padding: 5px 5px 5px 5px;
+        border: 1px black solid;
+        border-radius: 15px;
+    }
+
+    .char25{
+        width: 20ch;
+    }
+
+}
