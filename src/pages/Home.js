@@ -9,16 +9,17 @@ import {
     JulyLicense,
     JulyNoise,
     JulyOccupancy,
-    JulyOther,
+    JulySign,
     JulyParking,
     JulyTotalFines,
+    JulyAdvertising,
     JuneCheckIn,
     JuneLicense,
     JuneNoise,
     JuneOccupancy,
     JuneOther,
     JuneParking,
-    JuneTotalFines,
+    JuneTotalFines, returnArrThing3,
     returnCount,
     returnCount2
 } from "../components/Stats";
@@ -174,8 +175,15 @@ export default function Home() {
                                 </td>
                             </tr>
                             <tr>
-                                <td><h4>Other: </h4></td>
-                                <td><h4>{JulyOther.length}</h4></td>
+                                <td><h4>No Sign: </h4></td>
+                                <td><h4>{JulySign.length}</h4></td>
+                                <td>
+                                    <button className={"right"}>View Data</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><h4>Advertising w/o License: </h4></td>
+                                <td><h4>{JulyAdvertising.length}</h4></td>
                                 <td>
                                     <button className={"right"}>View Data</button>
                                 </td>
@@ -183,6 +191,7 @@ export default function Home() {
                         </table>
                     </div>
                     <div>
+                        {console.log(returnArrThing3(July2021Concerns))}
                         <h1 className={"inline"}>Total Fines:</h1>
                         <h1 className={"inline marginLeft"}>${JulyTotalFines}</h1>
                     </div>
