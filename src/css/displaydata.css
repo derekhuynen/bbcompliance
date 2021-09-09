@@ -1,0 +1,22 @@
+.dataContainer{
+    margin: auto auto;
+    border: 2px black solid;
+}
+
+.table{
+
+}
+
+* > td{
+    margin: 0 10px 0 10px;
+    padding:  0 10px 0 10px;
+}
+
+* > .th{
+    text-align: left;
+}
+
+.headerDiv{
+    text-align: left;
+    padding:  0 10px 0 10px;
+}

@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import '../css/displaydata.css'
 
 const sortData = (
     data,
