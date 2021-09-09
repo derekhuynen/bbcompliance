@@ -19,7 +19,7 @@ import {
     JuneOccupancy,
     JuneOther,
     JuneParking,
-    JuneTotalFines, returnArrThing3,
+    JuneTotalFines,
     returnCount,
     returnCount2
 } from "../components/Stats";
@@ -57,9 +57,7 @@ export default function Home() {
                             <tr>
                                 <td><h3>Number of Citations:</h3></td>
                                 <td><h3 className={"alignCenter"}>{returnCount2(June2021Concerns)}</h3></td>
-                                <td>
-                                    <Link to="/data"><button className={"right"}>View Data</button></Link>
-                                </td>
+
                             </tr>
                         </table>
                     </div>
@@ -69,42 +67,72 @@ export default function Home() {
                                 <td className={"char25"}><h4>Noise/Party/Spa:</h4></td>
                                 <td><h4>{JuneNoise.length}</h4></td>
                                 <td>
-                                    <button className={"right"}>View Data</button>
+                                    <Link to={{
+                                        pathname: "/data",
+                                        state: {
+                                            data2: JuneNoise,
+                                        },
+                                    }} ><button className={"right"}>View Data</button></Link>
                                 </td>
                             </tr>
                             <tr>
                                 <td><h4>Parking: </h4></td>
                                 <td><h4>{JuneParking.length}</h4></td>
                                 <td>
-                                    <button className={"right"}>View Data</button>
+                                    <Link to={{
+                                        pathname: "/data",
+                                        state: {
+                                            data2: JuneParking,
+                                        },
+                                    }} ><button className={"right"}>View Data</button></Link>
                                 </td>
                             </tr>
                             <tr>
                                 <td><h4>Over Occupancy:</h4></td>
                                 <td><h4>{JuneOccupancy.length}</h4></td>
                                 <td>
-                                    <button className={"right"}>View Data</button>
+                                    <Link to={{
+                                        pathname: "/data",
+                                        state: {
+                                            data2: JuneOccupancy,
+                                        },
+                                    }} ><button className={"right"}>View Data</button></Link>
                                 </td>
                             </tr>
                             <tr>
                                 <td><h4>No License:</h4></td>
                                 <td><h4>{JuneLicense.length}</h4></td>
                                 <td>
-                                    <button className={"right"}>View Data</button>
+                                    <Link to={{
+                                        pathname: "/data",
+                                        state: {
+                                            data2: JuneLicense,
+                                        },
+                                    }} ><button className={"right"}>View Data</button></Link>
                                 </td>
                             </tr>
                             <tr>
                                 <td><h4>No In-person Check-in:</h4></td>
                                 <td><h4>{JuneCheckIn.length}</h4></td>
                                 <td>
-                                    <button className={"right"}>View Data</button>
+                                    <Link to={{
+                                        pathname: "/data",
+                                        state: {
+                                            data2: JuneCheckIn,
+                                        },
+                                    }} ><button className={"right"}>View Data</button></Link>
                                 </td>
                             </tr>
                             <tr>
                                 <td><h4>Other: </h4></td>
                                 <td><h4>{JuneOther.length}</h4></td>
                                 <td>
-                                    <button className={"right"}>View Data</button>
+                                    <Link to={{
+                                        pathname: "/data",
+                                        state: {
+                                            data2: JuneOther,
+                                        },
+                                    }} ><button className={"right"}>View Data</button></Link>
                                 </td>
                             </tr>
                         </table>
@@ -125,15 +153,17 @@ export default function Home() {
                                 <td className={"char25"}><h3>Number of Reports:</h3></td>
                                 <td><h3 className={"alignCenter"}>{July2021Concerns.length}</h3></td>
                                 <td>
-                                    <button className={"right"}>View Data</button>
+                                    <Link to={{
+                                        pathname: "/data",
+                                        state: {
+                                            data2: July2021Concerns,
+                                        },
+                                    }} ><button className={"right"}>View Data</button></Link>
                                 </td>
                             </tr>
                             <tr>
                                 <td><h3>Number of Citations:</h3></td>
                                 <td><h3 className={"alignCenter"}>{returnCount2(July2021Concerns)}</h3></td>
-                                <td>
-                                    <button className={"right"}>View Data</button>
-                                </td>
                             </tr>
                         </table>
                     </div>
@@ -143,55 +173,89 @@ export default function Home() {
                                 <td className={"char25"}><h4>Noise/Party/Spa:</h4></td>
                                 <td><h4>{JulyNoise.length}</h4></td>
                                 <td>
-                                    <button className={"right"}>View Data</button>
+                                    <Link to={{
+                                        pathname: "/data",
+                                        state: {
+                                            data2: JulyNoise,
+                                        },
+                                    }} ><button className={"right"}>View Data</button></Link>
                                 </td>
                             </tr>
                             <tr>
                                 <td><h4>Parking: </h4></td>
                                 <td><h4>{JulyParking.length}</h4></td>
                                 <td>
-                                    <button className={"right"}>View Data</button>
+                                    <Link to={{
+                                        pathname: "/data",
+                                        state: {
+                                            data2: JulyParking,
+                                        },
+                                    }} ><button className={"right"}>View Data</button></Link>
                                 </td>
                             </tr>
                             <tr>
                                 <td><h4>Over Occupancy:</h4></td>
                                 <td><h4>{JulyOccupancy.length}</h4></td>
                                 <td>
-                                    <button className={"right"}>View Data</button>
+                                    <Link to={{
+                                        pathname: "/data",
+                                        state: {
+                                            data2: JulyOccupancy,
+                                        },
+                                    }} ><button className={"right"}>View Data</button></Link>
                                 </td>
                             </tr>
                             <tr>
                                 <td><h4>No License:</h4></td>
                                 <td><h4>{JulyLicense.length}</h4></td>
                                 <td>
-                                    <button className={"right"}>View Data</button>
+                                    <Link to={{
+                                        pathname: "/data",
+                                        state: {
+                                            data2: JulyLicense,
+                                        },
+                                    }} ><button className={"right"}>View Data</button></Link>
                                 </td>
                             </tr>
                             <tr>
                                 <td><h4>No In-person Check-in:</h4></td>
                                 <td><h4>{JulyCheckIn.length}</h4></td>
                                 <td>
-                                    <button className={"right"}>View Data</button>
+                                    <Link to={{
+                                        pathname: "/data",
+                                        state: {
+                                            data2: JulyCheckIn,
+                                        },
+                                    }} ><button className={"right"}>View Data</button></Link>
                                 </td>
                             </tr>
                             <tr>
                                 <td><h4>No Sign: </h4></td>
                                 <td><h4>{JulySign.length}</h4></td>
                                 <td>
-                                    <button className={"right"}>View Data</button>
+                                    <Link to={{
+                                        pathname: "/data",
+                                        state: {
+                                            data2: JulySign,
+                                        },
+                                    }} ><button className={"right"}>View Data</button></Link>
                                 </td>
                             </tr>
                             <tr>
                                 <td><h4>Advertising w/o License: </h4></td>
                                 <td><h4>{JulyAdvertising.length}</h4></td>
                                 <td>
-                                    <button className={"right"}>View Data</button>
+                                    <Link to={{
+                                        pathname: "/data",
+                                        state: {
+                                            data2: JulyAdvertising,
+                                        },
+                                    }} ><button className={"right"}>View Data</button></Link>
                                 </td>
                             </tr>
                         </table>
                     </div>
                     <div>
-                        {console.log(returnArrThing3(July2021Concerns))}
                         <h1 className={"inline"}>Total Fines:</h1>
                         <h1 className={"inline marginLeft"}>${JulyTotalFines}</h1>
                     </div>
