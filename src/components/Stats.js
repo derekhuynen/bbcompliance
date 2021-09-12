@@ -23,7 +23,7 @@ export function returnCount2(arr){
     return count;
 }
 
-export function returnArrThing(arr,filter) {
+export function filterArray(arr, filter) {
 
     return arr.filter((item) => {
         if (item.ConcernType === filter) {
@@ -35,7 +35,31 @@ export function returnArrThing(arr,filter) {
 }
 
 
-export function returnArrThing3(arr) {
+export function filterArrayCitation(arr, filter) {
+
+    return arr.filter((item) => {
+        if ((item.ConcernType === filter)&&(item.CitationFineTotal > 0)) {
+            return item;
+        }else{
+            return null;
+        }
+    })
+}
+
+
+export function returnCitations(arr) {
+
+    return arr.filter((item) => {
+        if (item.CitationFineTotal > 0) {
+            return item;
+        }else{
+            return null;
+        }
+    })
+}
+
+
+export function returnHeaders(arr) {
 
     let results = []
 
@@ -54,19 +78,43 @@ export function totalFines(arr) {
 }
 
 
-export const JuneNoise = returnArrThing(June2021Concerns,"Noise/Party").concat(returnArrThing(June2021Concerns,"Spa after 10pm"))
-export const JuneParking = returnArrThing(June2021Concerns,"Parking")
-export const JuneOccupancy = returnArrThing(June2021Concerns,"Over Occupancy")
-export const JuneLicense = returnArrThing(June2021Concerns,"No License")
-export const JuneCheckIn = returnArrThing(June2021Concerns,"No In-person Check-in")
-export const JuneOther = returnArrThing(June2021Concerns,"Delinquent TOT")
+export function allInOne(arr,headers){
+    let results = []
+
+    headers.forEach((header)=>{
+        results.push( {key: header, values: []})
+        })
+
+    arr.forEach((item)=> {
+        // eslint-disable-next-line array-callback-return
+        results.some((result)=>{
+            if(result.key === item.ConcernType){
+                result.values.push(item);
+                return true
+            }
+        })
+    })
+
+    return results
+}
+
+export function returnRightArray(header, arr){
+    return
+}
+
+export const JuneNoise = filterArray(June2021Concerns,"Noise/Party").concat(filterArray(June2021Concerns,"Spa after 10pm"))
+export const JuneParking = filterArray(June2021Concerns,"Parking")
+export const JuneOccupancy = filterArray(June2021Concerns,"Over Occupancy")
+export const JuneLicense = filterArray(June2021Concerns,"No License")
+export const JuneCheckIn = filterArray(June2021Concerns,"No In-person Check-in")
+export const JuneOther = filterArray(June2021Concerns,"Delinquent TOT")
 export const JuneTotalFines = totalFines(June2021Concerns)
 
-export const JulyNoise = returnArrThing(July2021Concerns,"Noise/Party").concat(returnArrThing(June2021Concerns,"Spa after 10pm"))
-export const JulyParking = returnArrThing(July2021Concerns,"Parking")
-export const JulyOccupancy = returnArrThing(July2021Concerns,"Over Occupancy")
-export const JulyLicense = returnArrThing(July2021Concerns,"No Licence")
-export const JulyCheckIn = returnArrThing(July2021Concerns,"No In-person Check-in")
-export const JulyAdvertising = returnArrThing(July2021Concerns,"Advertising without a License")
-export const JulySign = returnArrThing(July2021Concerns,"No Exterior Sign")
+export const JulyNoise = filterArray(July2021Concerns,"Noise/Party").concat(filterArray(June2021Concerns,"Spa after 10pm"))
+export const JulyParking = filterArray(July2021Concerns,"Parking")
+export const JulyOccupancy = filterArray(July2021Concerns,"Over Occupancy")
+export const JulyLicense = filterArray(July2021Concerns,"No Licence")
+export const JulyCheckIn = filterArray(July2021Concerns,"No In-person Check-in")
+export const JulyAdvertising = filterArray(July2021Concerns,"Advertising without a License")
+export const JulySign = filterArray(July2021Concerns,"No Exterior Sign")
 export const JulyTotalFines = totalFines(July2021Concerns)
