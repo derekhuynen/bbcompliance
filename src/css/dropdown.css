@@ -1,0 +1,25 @@
+.buttonKinda{
+    border: 1px black solid;
+    padding: 2px 3px 2px 3px;
+    cursor: pointer;
+    user-select: none;
+    flex: 50%;
+}
+
+.menu{
+    z-index: 100;
+    background-color: aqua;
+    position: absolute;
+    padding: 5px 10px;
+    user-select: none;
+}
+
+.menuItem{
+    text-align: center;
+    cursor: pointer;
+}
+
+.menuItem:hover{
+    background-color: white;
+
+}

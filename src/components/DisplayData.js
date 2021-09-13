@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import '../css/displaydata.css'
+import PropertyCard from "./PropertyCard";
 
 const sortData = (
     data,
@@ -55,9 +56,13 @@ const getNextSortingDirection = (sortingDirection) => {
 
 
 export default function DisplayData(props) {
-    const [sortingDirections, setSortingDirections] = useState({});
-
     let data = props.data;
+
+    const [sortingDirections, setSortingDirections] = useState({});
+    const [showProperty, setShowProperty] = useState(false);
+    const [property, setProperty] = useState(data[0]);
+
+
 
     useEffect(() => {
         setSortingDirections(originalDirection());
@@ -80,6 +85,13 @@ export default function DisplayData(props) {
         setSortingDirections(newSortingDirections);
     };
 
+
+    const onclick = (item) => {
+        console.log(item);
+        setProperty(item);
+        setShowProperty(true);
+
+    }
 
     return (
         <>
@@ -108,7 +120,7 @@ export default function DisplayData(props) {
                         <tbody>
                         {data.map(
                             (item, itemsIdx) => (
-                                <tr key={itemsIdx}>
+                                <tr key={itemsIdx} onClick={ ()=> onclick(item)}>
                                     {props.headers.map((header, headerIdx) => {
                                             if (header.key === "ReferenceNumber") {
                                                 return <td key={headerIdx}>{item[header.key].replace("RAC-2021-", "")}</td>
@@ -122,6 +134,7 @@ export default function DisplayData(props) {
                         )}
                         </tbody>
                     </table>
+                    {showProperty ? <PropertyCard property={property} show={setShowProperty}/> : console.log(false)}
                 </div>
             </div>
         </>

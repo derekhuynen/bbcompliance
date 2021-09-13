@@ -6,7 +6,7 @@ import {July2021Concerns} from "../data/July2021Concerns";
 import {AllCitations} from "../data/AllConcerns";
 import MonthSummary from "../components/MonthSummary";
 import {
-    returnCount,allInOne
+    returnCount
 } from "../components/Stats";
 
 

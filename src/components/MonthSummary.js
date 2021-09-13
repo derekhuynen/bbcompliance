@@ -33,6 +33,8 @@ export default function MonthSummary(props){
 
     return(
         <div className={"month_box"}>
+
+
             <h1>{props.month}</h1>
             <div className={"month_header"}>
                 <table className={"stats_table"}>

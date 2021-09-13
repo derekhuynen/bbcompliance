@@ -99,7 +99,9 @@ export function allInOne(arr,headers){
 }
 
 export function returnRightArray(header, arr){
-    return
+    return arr.find((item)=>{
+        return item.key === header
+    })
 }
 
 export const JuneNoise = filterArray(June2021Concerns,"Noise/Party").concat(filterArray(June2021Concerns,"Spa after 10pm"))
