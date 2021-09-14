@@ -15,7 +15,7 @@
 
 .citations > p {
     font-size: 14px;
-    margin: 0 10px 0 10px;
+    margin: 0 5px 0 5px;
 }
 
 .citation {
@@ -24,6 +24,7 @@
 
 .citation > h4{
     display: inline;
-    margin: 0 8px 0 8px;
+    margin: 0 5px 0 5px;
     font-size: 16px;
+    font-weight: 500;
 }

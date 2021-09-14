@@ -115,7 +115,7 @@ export default function DisplayData(props) {
                                      sortColumn(header.key);
                                  }}>
                                 <div className="headerDiv">
-                                    {header.value}
+                                    <h4>{header.value}</h4>
                                 </div>
                             </div>
                         )
