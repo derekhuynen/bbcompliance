@@ -1,12 +1,10 @@
 .page_container {
     min-height: calc(100vh - 50px); /* Minus the Header(0) and Footer(0) */
-
     width: 100%;
 }
 
 .content_container{
-    width: calc(100% - 30px);
-    max-width: 1000px;
+    width: calc(100% - 32px);
     margin: auto auto;
     padding: 15px;
 }

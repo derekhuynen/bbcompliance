@@ -3,7 +3,7 @@ import '../css/styles.css'
 
 import {June2021Concerns} from '../data/June2021Concerns'
 import {July2021Concerns} from '../data/July2021Concerns'
-import DisplayData from "../components/DisplayData";
+import DisplayData from "../components/DisplayData2";
 import DropDown from '../components/DropDown'
 import {useLocation} from "react-router-dom";
 import 'react-dropdown/style.css';

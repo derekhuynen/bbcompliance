@@ -1,0 +1,97 @@
+.BigBear{
+    border: 1px black solid;
+
+}
+
+.dataContainer{
+    margin: auto auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+}
+
+.table{
+
+}
+
+* > td{
+    margin: 0 10px 0 10px;
+    padding:  0 10px 0 10px;
+}
+
+* > .th{
+    text-align: left;
+}
+
+.headerDiv {
+    text-align: left;
+    padding: 0 10px 0 10px;
+}
+
+
+.headers{
+    flex: 100%;
+    display: flex;
+    width: 100%;
+
+
+
+}
+
+.header-data {
+    flex: 100%;
+
+}
+
+.data {
+    flex: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.row{
+    flex: auto;
+    display: flex;
+}
+
+.row_data{
+    flex: auto;
+    border: 1px solid
+
+}
+
+
+.dataContainer{
+    padding: 10px;
+    width: calc(100% - 20px)
+}
+
+.Data {
+    flex: 1 0 80px;
+    max-width: 100px;
+
+}
+
+.Disposition {
+    flex: 1 0 125px;
+    display: none;
+
+}
+
+.Address {
+    flex: 1 0 225px;
+
+}
+
+.Complaint {
+    flex: 1 0 175px;
+
+}
+
+.Fine {
+    flex: 0 0 50px;
+
+}
+

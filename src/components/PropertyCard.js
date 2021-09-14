@@ -1,4 +1,5 @@
 import React from "react"
+import '../css/propertyCard.css'
 
 
 
@@ -9,10 +10,8 @@ export default function PropertyCard(props){
 
     return (
 
-        <div onClick={() => props.show(false)}>
-            {props.property.ConcernAddress}
-            {props.property.DateEntered}
-            {props.property.Disposition}
+        <div className={"property_card"} onClick={() => props.show(false)}>
+
         </div>
     )
 }

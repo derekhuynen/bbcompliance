@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import '../css/displaydata.css'
+import '../css/displaydata2.css'
 import PropertyCard from "./PropertyCard";
 
 const sortData = (
@@ -54,13 +54,19 @@ const getNextSortingDirection = (sortingDirection) => {
     return 'ASCENDING';
 };
 
+const filterArr = (arr, property) => {
+    return arr.filter((item)=>
+         (item !== property)
+    )
+}
+
 
 export default function DisplayData(props) {
     let data = props.data;
 
     const [sortingDirections, setSortingDirections] = useState({});
     const [showProperty, setShowProperty] = useState(false);
-    const [property, setProperty] = useState(data[0]);
+    const [properties, setProperties] = useState([]);
 
 
 
@@ -87,57 +93,50 @@ export default function DisplayData(props) {
 
 
     const onclick = (item) => {
-        console.log(item);
-        setProperty(item);
-        setShowProperty(true);
 
+        if(properties.includes(item)){
+            setProperties(filterArr(properties,item))
+        }else{
+            properties.push(item)
+        }
+
+        setShowProperty(!showProperty);
     }
 
     return (
-        <>
             <div className="BigBear">
-
                 <div className="dataContainer">
-                    <table className="table">
-                        <thead>
-                        <tr>
+                        <div className={"headers"}>
                             {props.headers.map(
                                 (header, headerIdx) => (
 
-                                    <th key={headerIdx}
+                                    <div className={header.value} key={headerIdx}
                                         onClick={() => {
                                             sortColumn(header.key);
                                         }}>
                                         <div className="headerDiv">
                                             {header.value}
                                         </div>
-                                    </th>
+                                    </div>
                                 )
                             )}
-                        </tr>
-
-                        </thead>
-                        <tbody>
+                        </div>
+                        <div className={"data"}>
                         {data.map(
                             (item, itemsIdx) => (
-                                <tr key={itemsIdx} onClick={ ()=> onclick(item)}>
-                                    {props.headers.map((header, headerIdx) => {
-                                            if (header.key === "ReferenceNumber") {
-                                                return <td key={headerIdx}>{item[header.key].replace("RAC-2021-", "")}</td>
-                                            } else {
-                                                return <td key={headerIdx}>{item[header.key]}</td>
+                                <div>
+                                    <div className={"row"} key={itemsIdx} onClick={ ()=> onclick(item)}>
+                                        {props.headers.map((header, headerIdx) => {
+                                                return <div className={header.value} key={headerIdx}>{item[header.key]}</div>
                                             }
-                                        }
-                                    )}
-                                </tr>
+                                        )}
+                                    </div>
+                                    {properties.includes(item) ? <PropertyCard property={item} show={setShowProperty}/> : null}
+                                </div>
                                 )
                         )}
-
-                        </tbody>
-                    </table>
-
+                    </div>
                 </div>
             </div>
-        </>
     );
 }

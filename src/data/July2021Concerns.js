@@ -615,7 +615,7 @@ export const July2021Concerns = [
         Status: "In Progress",
         Disposition: "Issued Citation",
         ConcernAddress: "39470 LAKE DR",
-        ConcernType: "Advertising without a License",
+        ConcernType: "Advertising",
         ConcernDescription: "RP states she received a post card in the mail from a company out of state called Modern Vacay picturing a house a this address for short term rental and believes it is not registered. She sees people coming and going regularly and new people arrived this evening.",
         CitationFineTotal: 1000
     },
@@ -905,7 +905,7 @@ export const July2021Concerns = [
         Status: "Closed",
         Disposition: "Issued Citation",
         ConcernAddress: "716 MAIN ST",
-        ConcernType: "Advertising without a License",
+        ConcernType: "Advertising",
         ConcernDescription: "I looked at the listing and it looked a bit suspicious so I did some further investigation.  I found the property on Zillow.  Zillow has the property as a 3 bedroom 2.5 bath and 1296 sq ft.  Another STR owner called her out and she deleted her post.  I check later and she changed it to sleeps 10.  Still to many for 1296 sq ft.\n\nAs a responsible STR owner who abides by the City�s rules and regulations this is very upsetting to me.  It�s this type of blatant disregard of the City Ordinances that requires the city to have to step in and make so many restrictions, rules, fines, etc.  \n\nI am requesting that the city immediately look into this matter and fine this owner or, in the alternative, their permit suspended and/or revoked.  \n\nI have attached photos of the Airbnb listing and Zillow of the property.",
         CitationFineTotal: 2500
     },

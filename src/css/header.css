@@ -1,5 +1,4 @@
 .header {
-
     position: sticky;
     top: 0;
     height: 50px;
@@ -17,6 +16,7 @@
     margin-left: 10px;
     display: inline;
 }
+
 .brand > h1{
     color: white;
 }
@@ -32,6 +32,7 @@
     margin-left: 100px;
     top: 15px;
     left: 150px;
+    width: 50%;
 
 }
 
