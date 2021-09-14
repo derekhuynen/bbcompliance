@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import '../css/styles.css'
 
 import {June2021Concerns} from '../data/June2021Concerns'
@@ -7,19 +7,10 @@ import DisplayData from "../components/DisplayData2";
 import DropDown from '../components/DropDown'
 import {useLocation} from "react-router-dom";
 import 'react-dropdown/style.css';
+import {allData} from "../components/Stats";
 
 const basicHeaders = [{key: "DateEntered", value: "Data"},{key: "Disposition", value: "Disposition"}, {key: "ConcernAddress", value: "Address"},{key: "ConcernType", value: "Complaint"}, {key: "CitationFineTotal", value: "Fine"}];
-const HeadersJune = ["All","Noise/Party","Parking","Spa after 10pm","Over Occupancy","No License","No In-person Check-in","Delinquent TOT"]
-
-const AllData = June2021Concerns.concat(July2021Concerns);
-
-const getFilteredRows = (rows, filterKey, other) => {
-    return rows.filter((row) => {
-        return Object.values(row).some((s) =>
-            ("" + s).toLowerCase().includes(filterKey.toLowerCase()) && ("" + s).toLowerCase().includes(other.toLowerCase())
-        );
-    });
-};
+const AllHeaders = ["Noise/Party","Parking","Spa after 10pm","Over Occupancy","No License","No In-person Check-in","Delinquent TOT","No Exterior Sign","Advertising"]
 
 
 
@@ -59,13 +50,15 @@ const getFilteredRowsBetter = (rows, filterKey, topic,fine) => {
 
 export default function Data(){
     const location = useLocation()
-    const [data, setData] = useState((location.state ? location.state.data2 : AllData));
-    const [headers, setHeaders] = useState (basicHeaders)
+    const [data, setData] = useState((location.state ? location.state.data2 : allData));
     const [inputFieldValue, setInputFieldValue] = useState("");
-    const [topic, setTopic] = useState("All");
-    const [fine, setFine] = useState("All");
+    const [topic, setTopic] = useState((location.state.topic ? location.state.topic : "All"));
+    const [fine, setFine] = useState(location.state.fine ? location.state.fine : "All");
 
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     const buttons = (arr, title) => {
         const style = (data === arr ? "highlight" : "default")
@@ -77,7 +70,7 @@ export default function Data(){
     return(
         <div className={"page-container"}>
 
-            {buttons(AllData,"ALL")}
+            {buttons(allData,"ALL")}
             {buttons(June2021Concerns,"JUNE")}
             {buttons(July2021Concerns,"JULY")}
 
@@ -99,18 +92,18 @@ export default function Data(){
             <div className={"drop_down_container"}>
                 <div className={"drop-down-data"}>
                     <div className={"drop-down-name"}>ConcernType</div>
-                    <DropDown menu={HeadersJune} setTopic={setTopic}/>
+                    <DropDown menu={AllHeaders} setTopic={setTopic} placeholder={topic}/>
                 </div>
 
                 <div className={"drop-down-data"}>
                     <div className={"drop-down-name"}>Citation</div>
-                    <DropDown menu={["All","Yes","No"]} setTopic={setFine}/>
+                    <DropDown menu={["All","Yes","No"]} setTopic={setFine} placeholder={fine}/>
                 </div>
             </div>
 
 
 
-            <DisplayData data={getFilteredRowsBetter(data,inputFieldValue,topic,fine)} headers={headers}/>
+            <DisplayData data={getFilteredRowsBetter(data,inputFieldValue,topic,fine)} headers={basicHeaders}/>
         </div>
     )
 }

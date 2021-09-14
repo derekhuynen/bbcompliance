@@ -1605,7 +1605,7 @@ export const July2021Concerns = [
         Status: "Closed",
         Disposition: "No Issue",
         ConcernAddress: "607 TIMBER LN",
-        ConcernType: "No Licence",
+        ConcernType: "No License",
         ConcernDescription: "7:29 pm (left on my desk phone) RP states he has been meaning to call us and tell us that the sign up at this house does not meet the criteria for one of our exterior signs.  Thinks it may not be legal.",
         CitationFineTotal: 0
     },
@@ -2265,8 +2265,8 @@ export const July2021Concerns = [
         Status: "In Progress",
         Disposition: "Issued Citation",
         ConcernAddress: "794 ST MORITZ DR",
-        ConcernType: "No Licence",
-        ConcernDescription: "NO LICENCE.",
+        ConcernType: "No License",
+        ConcernDescription: "NO License.",
         CitationFineTotal: 16500
     },
     {

@@ -1,14 +1,14 @@
-import React, {useState} from "react";
+import React from "react";
 import '../../css/header.css'
-import {Link, useHistory} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {June2021Concerns} from "../../data/June2021Concerns";
 import {July2021Concerns} from "../../data/July2021Concerns";
+import {allData} from "../Stats";
 
 
 
 
 export default function Header(){
-    const history = useHistory();
 
     return(
         <div className='header'>
@@ -24,7 +24,7 @@ export default function Header(){
                     <Link to={{
                         pathname: "/data",
                         state: {
-                            data2: (June2021Concerns.concat(July2021Concerns))
+                            data2: (allData)
                         },
                     }} >Data</Link>
                 </div>

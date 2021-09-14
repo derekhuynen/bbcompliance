@@ -4,7 +4,7 @@ import '../css/dropdown.css'
 
 export default function DropBox(props){
 
-    const [placeholder, setPlaceholder] = useState(props.menu[0]);
+    const [placeholder, setPlaceholder] = useState(props.placeholder);
     const [show, setShow] = useState(false);
 
 

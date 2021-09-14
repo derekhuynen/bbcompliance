@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import '../css/displaydata2.css'
 import PropertyCard from "./PropertyCard";
+import {currencyFormat} from "./Stats";
 
 const sortData = (
     data,
@@ -127,7 +128,12 @@ export default function DisplayData(props) {
                                 <div>
                                     <div className={"row"} key={itemsIdx} onClick={ ()=> onclick(item)}>
                                         {props.headers.map((header, headerIdx) => {
+                                            if(header.key === "CitationFineTotal"){
+                                                return <div className={header.value} key={headerIdx}>{currencyFormat(item[header.key],0)}</div>
+                                            }else {
                                                 return <div className={header.value} key={headerIdx}>{item[header.key]}</div>
+                                            }
+
                                             }
                                         )}
                                     </div>

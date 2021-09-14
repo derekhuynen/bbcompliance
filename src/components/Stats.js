@@ -1,6 +1,8 @@
 import {June2021Concerns} from "../data/June2021Concerns";
 import {July2021Concerns} from "../data/July2021Concerns";
 
+export const allData = June2021Concerns.concat(July2021Concerns)
+
 export function returnCount(arr){
     let count = 0;
     arr.forEach((item) =>{
@@ -94,29 +96,16 @@ export function allInOne(arr,headers){
             }
         })
     })
-
     return results
 }
 
-export function returnRightArray(header, arr){
-    return arr.find((item)=>{
-        return item.key === header
-    })
+export function currencyFormat(num, position) {
+        return '$' + num.toFixed(position).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
 
-export const JuneNoise = filterArray(June2021Concerns,"Noise/Party").concat(filterArray(June2021Concerns,"Spa after 10pm"))
-export const JuneParking = filterArray(June2021Concerns,"Parking")
-export const JuneOccupancy = filterArray(June2021Concerns,"Over Occupancy")
-export const JuneLicense = filterArray(June2021Concerns,"No License")
-export const JuneCheckIn = filterArray(June2021Concerns,"No In-person Check-in")
-export const JuneOther = filterArray(June2021Concerns,"Delinquent TOT")
+
+
 export const JuneTotalFines = totalFines(June2021Concerns)
 
-export const JulyNoise = filterArray(July2021Concerns,"Noise/Party").concat(filterArray(June2021Concerns,"Spa after 10pm"))
-export const JulyParking = filterArray(July2021Concerns,"Parking")
-export const JulyOccupancy = filterArray(July2021Concerns,"Over Occupancy")
-export const JulyLicense = filterArray(July2021Concerns,"No Licence")
-export const JulyCheckIn = filterArray(July2021Concerns,"No In-person Check-in")
-export const JulyAdvertising = filterArray(July2021Concerns,"Advertising without a License")
-export const JulySign = filterArray(July2021Concerns,"No Exterior Sign")
+
 export const JulyTotalFines = totalFines(July2021Concerns)
