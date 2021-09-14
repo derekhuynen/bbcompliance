@@ -11,6 +11,7 @@ import 'react-dropdown/style.css';
 const basicHeaders = [{key: "DateEntered", value: "Data"},{key: "Disposition", value: "Disposition"}, {key: "ConcernAddress", value: "Address"},{key: "ConcernType", value: "Complaint"}, {key: "CitationFineTotal", value: "Fine"}];
 const HeadersJune = ["All","Noise/Party","Parking","Spa after 10pm","Over Occupancy","No License","No In-person Check-in","Delinquent TOT"]
 
+const AllData = June2021Concerns.concat(July2021Concerns);
 
 const getFilteredRows = (rows, filterKey, other) => {
     return rows.filter((row) => {
@@ -58,7 +59,7 @@ const getFilteredRowsBetter = (rows, filterKey, topic,fine) => {
 
 export default function Data(){
     const location = useLocation()
-    const [data, setData] = useState(location.state.data2);
+    const [data, setData] = useState((location.state ? location.state.data2 : AllData));
     const [headers, setHeaders] = useState (basicHeaders)
     const [inputFieldValue, setInputFieldValue] = useState("");
     const [topic, setTopic] = useState("All");
@@ -66,17 +67,27 @@ export default function Data(){
 
 
 
+    const buttons = (arr, title) => {
+        const style = (data === arr ? "highlight" : "default")
+
+        return <button className={style} onClick={()=>{setData(arr)}}>{title}</button>
+    }
 
 
     return(
         <div className={"page-container"}>
-            <button onClick={()=>{setData(June2021Concerns.concat(July2021Concerns))}}>ALL</button>
-            <button onClick={()=>{setData(June2021Concerns)}}>JUNE</button>
-            <button onClick={()=>{setData(July2021Concerns)}}>JULY</button>
+
+            {buttons(AllData,"ALL")}
+            {buttons(June2021Concerns,"JUNE")}
+            {buttons(July2021Concerns,"JULY")}
 
 
-            <div>
+
+
+            <div className={"drop-down-data"}>
+                <div className={"drop-down-name"}>Search: </div>
                 <input
+                    className={"input_box"}
                     value={inputFieldValue}
                     onChange={(e) => {
                         setInputFieldValue(e.target.value);
@@ -84,15 +95,19 @@ export default function Data(){
                     }}
                 />
             </div>
-            <div className={"drop-down-data"}>
-                <div className={"drop-down-name"}>ConcernType</div>
-                <DropDown menu={HeadersJune} setTopic={setTopic}/>
+
+            <div className={"drop_down_container"}>
+                <div className={"drop-down-data"}>
+                    <div className={"drop-down-name"}>ConcernType</div>
+                    <DropDown menu={HeadersJune} setTopic={setTopic}/>
+                </div>
+
+                <div className={"drop-down-data"}>
+                    <div className={"drop-down-name"}>Citation</div>
+                    <DropDown menu={["All","Yes","No"]} setTopic={setFine}/>
+                </div>
             </div>
 
-            <div className={"drop-down-data"}>
-                <div className={"drop-down-name"}>Citation</div>
-                <DropDown menu={["All","Yes","No"]} setTopic={setFine}/>
-            </div>
 
 
             <DisplayData data={getFilteredRowsBetter(data,inputFieldValue,topic,fine)} headers={headers}/>

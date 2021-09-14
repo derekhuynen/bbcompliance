@@ -2,6 +2,16 @@
   width: 100%;
   margin: 0;
   padding: 0;
+  background-color: lightgrey;
+}
+
+.max_width{
+  width: 100%;
+  padding: 0;
+  max-width: 1500px;
+  margin: auto auto;
+  border: 1px black solid;
+  background-color: white;
 }
 
 body {

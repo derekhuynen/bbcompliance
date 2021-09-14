@@ -1,6 +1,7 @@
 .page_container {
     min-height: calc(100vh - 50px); /* Minus the Header(0) and Footer(0) */
     width: 100%;
+    max-width: 1200px;
 }
 
 .content_container{
@@ -89,15 +90,30 @@ td > h3{
     text-align: center;
 }
 
+
+.drop_down_container{
+    display: flex;
+    margin: 0 0 10px 0;
+}
+
 .drop-down-data{
     display: flex;
     width: 300px;
-
+    margin: 10px 10px 0 10px
 }
 
 .drop-down-name{
     flex: 25%
 }
+
+.search_box{
+    display: flex;
+}
+
+.input_box{
+    flex: 50%;
+}
+
 
 
 @media only screen and (max-width: 400px) {

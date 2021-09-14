@@ -34,13 +34,12 @@
     flex: 100%;
     display: flex;
     width: 100%;
-
-
-
+    cursor: pointer;
 }
 
 .header-data {
     flex: 100%;
+
 
 }
 
@@ -54,6 +53,7 @@
 .row{
     flex: auto;
     display: flex;
+    cursor: pointer;
 }
 
 .row_data{
@@ -65,7 +65,9 @@
 
 .dataContainer{
     padding: 10px;
-    width: calc(100% - 20px)
+    width: calc(100% - 20px);
+    margin: auto auto;
+    max-width: 1200px
 }
 
 .Data {
@@ -76,8 +78,6 @@
 
 .Disposition {
     flex: 1 0 125px;
-    display: none;
-
 }
 
 .Address {
@@ -93,5 +93,10 @@
 .Fine {
     flex: 0 0 50px;
 
+}
+
+.highlight {
+    background-color: black;
+    color: white;
 }
 

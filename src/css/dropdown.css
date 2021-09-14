@@ -7,11 +7,12 @@
 }
 
 .menu{
-    z-index: 100;
-    background-color: aqua;
+    z-index: 90;
+    background-color: lightgrey;
     position: absolute;
     padding: 5px 10px;
     user-select: none;
+    width: 165px;
 }
 
 .menuItem{

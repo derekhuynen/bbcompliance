@@ -9,13 +9,15 @@ import Data from "./pages/Data";
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Header/>
-        <Switch>
-          <Route path="/data"> <Data data/></Route>
-          <Route path="/" component={Home}/>
-        </Switch>
-      </ Router>
+        <div className={"max_width"}>
+            <Router>
+                <Header/>
+                <Switch>
+                    <Route path="/data"> <Data data/></Route>
+                    <Route path="/" component={Home}/>
+                </Switch>
+            </ Router>
+        </div>
     </div>
   );
 }
