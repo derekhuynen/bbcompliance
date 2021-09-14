@@ -1,9 +1,7 @@
 import React, {useEffect, useState} from "react"
 import '../css/propertyCard.css'
 import {AllCitations} from '../data/AllConcerns'
-
-
-
+import {currencyFormat} from "./Stats";
 
 
 export default function PropertyCard(props) {
@@ -19,8 +17,8 @@ export default function PropertyCard(props) {
 
     function search(address) {
         let result = {};
-        AllCitations.forEach((item)=>{
-            if(item.ConcernAddress === address){
+        AllCitations.forEach((item) => {
+            if (item.ConcernAddress === address) {
                 result = item
             }
         })
@@ -32,11 +30,21 @@ export default function PropertyCard(props) {
     function display(data) {
 
         return (
-            <div>
-                {data.Citations.map((citation)=>{
+            <div className={"citation-container"}>
+                {data.Citations.map((citation,index) => {
+                        return (
+                            <div className={"citations"} key={index}>
+                                <div className={"citation"}>
+                                    <h4>Date: {citation.DateEntered}</h4>
+                                    <h4>Complaint: {citation.ConcernType}</h4>
+                                    <h4>Fine: {currencyFormat(citation.CitationFineTotal,2)}</h4>
+                                </div>
+                                <p>
+                                    Description: {citation.ConcernDescription}
+                                </p>
+                            </div>
 
-                    return citation.ReferenceNumber
-
+                        )
                     }
                 )}
             </div>
@@ -44,17 +52,13 @@ export default function PropertyCard(props) {
     }
 
 
+    return (
 
-return (
+        <div className={"property_card"} onClick={() => props.show(props.property)}>
+            <h4>Address: {props.property.ConcernAddress}</h4>
 
-    <div className={"property_card"} onClick={() => props.show(false)}>
-        <h4>Address: {props.property.ConcernAddress}</h4>
-        <p>Date: {props.property.DateEntered}, Status: {props.property.Status}</p>
-        <p>Reference Number: {props.property.ReferenceNumber}</p>
-        <p>Description: {props.property.ConcernDescription}</p>
+            {loaded ? display(moreData) : null}
 
-        {loaded ? display(moreData) : null}
-
-    </div>
-)
+        </div>
+    )
 }

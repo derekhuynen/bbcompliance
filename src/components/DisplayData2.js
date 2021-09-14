@@ -56,8 +56,8 @@ const getNextSortingDirection = (sortingDirection) => {
 };
 
 const filterArr = (arr, property) => {
-    return arr.filter((item)=>
-         (item !== property)
+    return arr.filter((item) =>
+        (item !== property)
     )
 }
 
@@ -68,7 +68,6 @@ export default function DisplayData(props) {
     const [sortingDirections, setSortingDirections] = useState({});
     const [showProperty, setShowProperty] = useState(false);
     const [properties, setProperties] = useState([]);
-
 
 
     useEffect(() => {
@@ -95,9 +94,9 @@ export default function DisplayData(props) {
 
     const onclick = (item) => {
 
-        if(properties.includes(item)){
-            setProperties(filterArr(properties,item))
-        }else{
+        if (properties.includes(item)) {
+            setProperties(filterArr(properties, item))
+        } else {
             properties.push(item)
         }
 
@@ -105,44 +104,47 @@ export default function DisplayData(props) {
     }
 
     return (
-            <div className="BigBear">
-                <div className="dataContainer">
-                        <div className={"headers"}>
-                            {props.headers.map(
-                                (header, headerIdx) => (
+        <div className="BigBear">
+            <div className="dataContainer">
+                <div className={"headers"}>
+                    {props.headers.map(
+                        (header, headerIdx) => (
 
-                                    <div className={header.value} key={headerIdx}
-                                        onClick={() => {
-                                            sortColumn(header.key);
-                                        }}>
-                                        <div className="headerDiv">
-                                            {header.value}
-                                        </div>
-                                    </div>
-                                )
-                            )}
-                        </div>
-                        <div className={"data"}>
-                        {data.map(
-                            (item, itemsIdx) => (
-                                <div>
-                                    <div className={"row"} key={itemsIdx} onClick={ ()=> onclick(item)}>
-                                        {props.headers.map((header, headerIdx) => {
-                                            if(header.key === "CitationFineTotal"){
-                                                return <div className={header.value} key={headerIdx}>{currencyFormat(item[header.key],0)}</div>
-                                            }else {
-                                                return <div className={header.value} key={headerIdx}>{item[header.key]}</div>
-                                            }
-
-                                            }
-                                        )}
-                                    </div>
-                                    {properties.includes(item) ? <PropertyCard property={item} show={setShowProperty}/> : null}
+                            <div className={header.value} key={headerIdx}
+                                 onClick={() => {
+                                     sortColumn(header.key);
+                                 }}>
+                                <div className="headerDiv">
+                                    {header.value}
                                 </div>
-                                )
-                        )}
-                    </div>
+                            </div>
+                        )
+                    )}
+                </div>
+                <div className={"data"}>
+                    {data.map(
+                        (item, itemsIdx) => (
+                            <div>
+                                <div className={"row"} key={itemsIdx} onClick={() => onclick(item)}>
+                                    {props.headers.map((header, headerIdx) => {
+                                            if (header.key === "CitationFineTotal") {
+                                                return <div className={header.value}
+                                                            key={headerIdx}>{currencyFormat(item[header.key], 0)}</div>
+                                            } else {
+                                                return <div className={header.value}
+                                                            key={headerIdx}>{item[header.key]}</div>
+                                            }
+
+                                        }
+                                    )}
+                                </div>
+                                {properties.includes(item) ?
+                                    <PropertyCard property={item} show={onclick}/> : null}
+                            </div>
+                        )
+                    )}
                 </div>
             </div>
+        </div>
     );
 }

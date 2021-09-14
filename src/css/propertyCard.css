@@ -1,3 +1,29 @@
 .property_card{
     background-color: lightgrey;
+    padding: 5px 10px;
+}
+
+
+.citation-container {
+
+    margin: 0 0 0 10px;
+}
+
+.citations {
+    margin: 0 0 10px 0;
+}
+
+.citations > p {
+    font-size: 14px;
+    margin: 0 10px 0 10px;
+}
+
+.citation {
+
+}
+
+.citation > h4{
+    display: inline;
+    margin: 0 8px 0 8px;
+    font-size: 16px;
 }
