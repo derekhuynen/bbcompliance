@@ -21,11 +21,12 @@ export default function Home() {
         <div className={"page_container"}>
             <div className={"content_container"}>
                 <h1>Short Term Rentals Stats</h1>
+                <h3>2021 June-July</h3>
                 <h3>Number of STRs: {allSTR.length}</h3>
                 <h3>Number of Reports: {June2021Concerns.concat(July2021Concerns).length}</h3>
                 <h3>Number of Citations: {returnCount(AllCitations)}</h3>
-                {MonthSummary({month: "June", arr:  June2021Concerns, headers: HeadersJune})}
-                {MonthSummary({month: "July", arr:  July2021Concerns, headers: HeadersJuly})}
+                {MonthSummary({month: "June 2021", arr:  June2021Concerns, headers: HeadersJune})}
+                {MonthSummary({month: "July 2021", arr:  July2021Concerns, headers: HeadersJuly})}
 
             </div>
         </div>
