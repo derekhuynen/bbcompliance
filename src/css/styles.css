@@ -40,7 +40,7 @@
 }
 
 .char25{
-    width: 27ch;
+    width: 24ch;
 }
 
 .marginLeft{
@@ -114,6 +114,27 @@ td > h3{
     flex: 50%;
 }
 
+
+.info-bottom{
+    display: flex;
+
+}
+
+.fines{
+    flex: 100%;
+    min-width: 180px;
+}
+.source{
+    justify-content: right;
+
+    flex: 100%;
+}
+.source > p{
+    text-align: right;
+    padding: 10px 0 0 0;
+    margin: 0;
+
+}
 
 
 @media only screen and (max-width: 400px) {

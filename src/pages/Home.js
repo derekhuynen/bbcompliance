@@ -11,8 +11,8 @@ import {
 
 
 
-const HeadersJune = ["Noise/Party","Parking","Spa after 10pm","Over Occupancy","No License","No In-person Check-in","Delinquent TOT"]
-const HeadersJuly = ["Parking","Noise/Party","Over Occupancy","Spa after 10pm","Advertising","No In-person Check-in","No Licence","No Exterior Sign"]
+const HeadersJune = ["Noise/Party","Parking","No License","Over Occupancy","Spa after 10pm","No In-person Check-in","Delinquent TOT"]
+const HeadersJuly = ["Noise/Party","Parking","Over Occupancy","No In-person Check-in","Spa after 10pm","No Exterior Sign","Advertising","No License"]
 
 export default function Home() {
 
