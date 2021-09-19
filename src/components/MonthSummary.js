@@ -87,7 +87,7 @@ export default function MonthSummary(props){
                     <h3 className={"inline marginLeft"}>{currencyFormat(totalFines(props.arr),2)}</h3>
                 </div>
                 <div className={"source"}>
-                    <p>**All data is from the Big Bear Lake City website.</p>
+                    <p>**All data is from the Big Bear Lake City website**</p>
                 </div>
 
             </div>
