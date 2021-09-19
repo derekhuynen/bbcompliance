@@ -4,6 +4,7 @@ import Header from "./components/Header/Header";
 import Home from "./pages/Home";
 
 import Data from "./pages/Data";
+import STR from "./pages/STR";
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
             <Router>
                 <Header/>
                 <Switch>
+                    <Route path="/str"> <STR/></Route>
                     <Route path="/data"> <Data data/></Route>
                     <Route path="/" component={Home}/>
                 </Switch>

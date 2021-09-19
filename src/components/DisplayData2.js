@@ -64,6 +64,7 @@ const filterArr = (arr, property) => {
 
 export default function DisplayData(props) {
     let data = props.data;
+    const canShow = props.canShow;
 
     const [sortingDirections, setSortingDirections] = useState({});
     const [showProperty, setShowProperty] = useState(false);
@@ -110,7 +111,7 @@ export default function DisplayData(props) {
                     {props.headers.map(
                         (header, headerIdx) => (
 
-                            <div className={header.value} key={headerIdx}
+                            <div className={header.key} key={headerIdx}
                                  onClick={() => {
                                      sortColumn(header.key);
                                  }}>
@@ -121,6 +122,7 @@ export default function DisplayData(props) {
                         )
                     )}
                 </div>
+
                 <div className={"data"}>
                     {data.map(
                         (item, itemsIdx) => (
@@ -128,17 +130,17 @@ export default function DisplayData(props) {
                                 <div className={"row"} key={itemsIdx} onClick={() => onclick(item)}>
                                     {props.headers.map((header, headerIdx) => {
                                             if (header.key === "CitationFineTotal") {
-                                                return <div className={header.value}
+                                                return <div className={header.key}
                                                             key={headerIdx}>{currencyFormat(item[header.key], 0)}</div>
                                             } else {
-                                                return <div className={header.value}
+                                                return <div className={header.key}
                                                             key={headerIdx}>{item[header.key]}</div>
                                             }
 
                                         }
                                     )}
                                 </div>
-                                {properties.includes(item) ?
+                                {canShow && properties.includes(item) ?
                                     <PropertyCard property={item} show={onclick}/> : null}
                             </div>
                         )

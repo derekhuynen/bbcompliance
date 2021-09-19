@@ -103,7 +103,7 @@ export default function Data(){
 
 
 
-            <DisplayData data={getFilteredRowsBetter(data,inputFieldValue,topic,fine)} headers={basicHeaders}/>
+            <DisplayData data={getFilteredRowsBetter(data,inputFieldValue,topic,fine)} headers={basicHeaders} canShow={true}/>
         </div>
     )
 }

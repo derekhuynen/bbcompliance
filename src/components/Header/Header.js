@@ -28,6 +28,9 @@ export default function Header(){
                         },
                     }} >Data</Link>
                 </div>
+                <div className={"links"}>
+                    <Link to='/str'>STRs</Link>
+                </div>
 
 
                 <div className={"headerLeft"}>

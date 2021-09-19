@@ -65,7 +65,7 @@
     max-width: 1200px
 }
 
-.Data {
+.DateEntered {
     flex: 1 0 80px;
     max-width: 100px;
 
@@ -75,17 +75,17 @@
     flex: 1 0 125px;
 }
 
-.Address {
+.ConcernAddress {
     flex: 1 0 225px;
 
 }
 
-.Complaint {
+.ConcernType {
     flex: 1 0 175px;
 
 }
 
-.Fine {
+.CitationFineTotal {
     flex: 0 0 50px;
 }
 
@@ -96,20 +96,44 @@
 
 
 
+.BCA{
+    flex: 1 1 100%;
+    margin: 0 10px 0 10px;
+}
+
+.VRR{
+    flex: 1 1 100%;
+    margin: 0 10px 0 10px;
+}
+
+.STRAddress{
+    flex: 1 1 100%;
+    margin: 0 10px 0 10px;
+    min-width: 300px;
+
+}
+
+.InspectionDate{
+    flex: 1 1 100%;
+    margin: 0 10px 0 10px;
+
+}
+
+
 @media only screen and (max-width: 700px) {
 
-    .Data {
+    .DateEntered {
         flex: 1 0 70px;
         max-width: 100px;
 
     }
 
-    .Address {
+    .ConcernAddress {
         flex: 1 0 190px;
 
     }
 
-    .Complaint {
+    .ConcernType {
         flex: 1 0 150px;
     }
 
@@ -128,7 +152,7 @@
         display: none;
     }
 
-    .Fine {
+    .CitationFineTotal {
         display: none;
     }
 }
