@@ -7,10 +7,16 @@ import DisplayData from "../components/DisplayData2";
 import DropDown from '../components/DropDown'
 import {useLocation} from "react-router-dom";
 import 'react-dropdown/style.css';
-import {allData} from "../components/Stats";
+import {AllData, MonthArray, UniqueHeaders} from "../components/Stats";
+import {February2021} from "../data/JS/February2021";
+import {March2021} from "../data/JS/March2021";
+import {April2021} from "../data/JS/April2021";
+import {June2021} from "../data/JS/June2021";
+import {July2021} from "../data/JS/July2021";
+import {August2021} from "../data/JS/August2021";
 
 const basicHeaders = [{key: "DateEntered", value: "Data"},{key: "Disposition", value: "Disposition"}, {key: "ConcernAddress", value: "Address"},{key: "ConcernType", value: "Complaint"}, {key: "CitationFineTotal", value: "Fine"}];
-const AllHeaders = ["Noise/Party","Parking","Spa after 10pm","Over Occupancy","No License","No In-person Check-in","Delinquent TOT","No Exterior Sign","Advertising"]
+const AllMonth = [{key: "All", value: AllData}, {key: "February", value: February2021}, {key: "March", value: March2021}, {key: "April", value: April2021},{key: "June", value: June2021},{key: "July", value: July2021},{key: "August", value: August2021}]
 
 
 
@@ -31,15 +37,12 @@ const filterFine = (row, fine) => {
     if(fine === "All"){
         return true
     }
-
     if(fine === "Yes"){
         return row.CitationFineTotal > 0;
     }else{
         return row.CitationFineTotal === 0;
     }
-
 }
-
 
 const getFilteredRowsBetter = (rows, filterKey, topic,fine) => {
     return rows.filter((row) => {
@@ -48,34 +51,41 @@ const getFilteredRowsBetter = (rows, filterKey, topic,fine) => {
 };
 
 
+
 export default function Data(){
     const location = useLocation()
-    const [data, setData] = useState((location.state ? location.state.data2 : allData));
+    const [data, setData] = useState(location.state.data2 ? location.state.data2 : AllData);
     const [inputFieldValue, setInputFieldValue] = useState("");
-    const [topic, setTopic] = useState((location.state.topic ? location.state.topic : "All"));
+    const [topic, setTopic] = useState(location.state.topic ? location.state.topic : "All");
     const [fine, setFine] = useState(location.state.fine ? location.state.fine : "All");
+    const [month, setMonth] = useState(pickMonth());
 
 
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
 
-    const buttons = (arr, title) => {
-        const style = (data === arr ? "highlight" : "default")
 
-        return <button className={style} onClick={()=>{setData(arr)}}>{title}</button>
+    function pickMonth(){
+        const temp = location.state.month ? location.state.month : "All"
+
+        const result =  AllMonth.find((month)=>{
+            console.log(month)
+            return month.key === temp
+        })
+
+        return result.key
     }
 
 
     return(
         <div className={"page-container"}>
 
-            {buttons(allData,"ALL")}
-            {buttons(June2021Concerns,"JUNE")}
-            {buttons(July2021Concerns,"JULY")}
 
-
-
+            <div className={"drop-down-data"}>
+                <div className={"drop-down-name"}>Month:</div>
+                <DropDown menu={AllMonth} setTopic={setData} placeholder={month}/>
+            </div>
 
             <div className={"drop-down-data"}>
                 <div className={"drop-down-name"}>Search: </div>
@@ -92,12 +102,12 @@ export default function Data(){
             <div className={"drop_down_container"}>
                 <div className={"drop-down-data"}>
                     <div className={"drop-down-name"}>ConcernType</div>
-                    <DropDown menu={AllHeaders} setTopic={setTopic} placeholder={topic}/>
+                    <DropDown menu={UniqueHeaders} setTopic={setTopic} placeholder={topic}/>
                 </div>
 
                 <div className={"drop-down-data"}>
                     <div className={"drop-down-name"}>Citation</div>
-                    <DropDown menu={["All","Yes","No"]} setTopic={setFine} placeholder={fine}/>
+                    <DropDown menu={[{key: "All", value: "All"},{key: "Yes", value: "Yes"},{key: "No", value: "No"}]} setTopic={setFine} placeholder={fine}/>
                 </div>
             </div>
 

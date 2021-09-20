@@ -6,13 +6,19 @@ import {July2021Concerns} from "../data/July2021Concerns";
 import {AllCitations} from "../data/AllConcerns";
 import MonthSummary from "../components/MonthSummary";
 import {
-    returnCount
+    printer2,
+    returnCount, returnHeaders, UniqueHeaders
 } from "../components/Stats";
+import {April2021, AprilHeaders} from '../data/JS/April2021'
+import {August2021, AugustHeaders} from "../data/JS/August2021";
+import {February2021, FebruaryHeaders} from "../data/JS/February2021";
+import {July2021,JulyHeaders} from "../data/JS/July2021";
+import {March2021,MarchHeaders} from "../data/JS/March2021";
+import {May2021,MayHeaders} from "../data/JS/May2021";
+import {June2021,JuneHeaders} from "../data/JS/June2021";
 
+import {AllData} from "../components/Stats";
 
-
-const HeadersJune = ["Noise/Party","Parking","No License","Over Occupancy","Spa after 10pm","No In-person Check-in","Delinquent TOT"]
-const HeadersJuly = ["Noise/Party","Parking","Over Occupancy","No In-person Check-in","Spa after 10pm","No Exterior Sign","Advertising","No License"]
 
 export default function Home() {
 
@@ -25,8 +31,16 @@ export default function Home() {
                 <h3>Number of STRs: {allSTR.length}</h3>
                 <h3>Number of Reports: {June2021Concerns.concat(July2021Concerns).length}</h3>
                 <h3>Number of Citations: {returnCount(AllCitations)}</h3>
-                {MonthSummary({month: "June 2021", arr:  June2021Concerns, headers: HeadersJune})}
-                {MonthSummary({month: "July 2021", arr:  July2021Concerns, headers: HeadersJuly})}
+
+
+                {MonthSummary({month: "February", arr:  February2021, headers: FebruaryHeaders})}
+                {MonthSummary({month: "March", arr:  March2021, headers: MarchHeaders})}
+                {MonthSummary({month: "April", arr:  April2021, headers: AprilHeaders})}
+                {MonthSummary({month: "May", arr:  May2021, headers: MayHeaders})}
+                {MonthSummary({month: "June", arr:  June2021, headers: JuneHeaders})}
+                {MonthSummary({month: "July", arr:  July2021, headers: JulyHeaders})}
+                {MonthSummary({month: "August", arr:  August2021, headers: AugustHeaders})}
+
 
             </div>
         </div>

@@ -20,7 +20,8 @@ export default function MonthSummary(props){
                     pathname: "/data",
                     state: {
                         data2: props.arr,
-                        fine: fine
+                        fine: fine,
+                        month: props.month
                     },
                 }} ><h4 className={"alignCenter"}>{arr.length}</h4></Link></td>
             </tr>
@@ -29,25 +30,27 @@ export default function MonthSummary(props){
 
 
     function eachRow(header,arr) {
-        const reports = filterArray(arr,header).length
-        const citations = filterArrayCitation(arr,header).length
+        const reports = filterArray(arr,header.key).length
+        const citations = filterArrayCitation(arr,header.key).length
 
         return(
             <tr>
-                <td className={"char25"}><h4>{header}:</h4></td>
+                <td className={"char25"}><h4>{header.value}:</h4></td>
                 <td><Link to={{
                     pathname: "/data",
                     state: {
-                        data2: arr,
-                        topic: header
+                        data2: props.arr,
+                        topic: header.value,
+                        month: props.month
                     },
                 }} ><h4 className={"alignCenter"}>{reports} ({((reports/totalReportsLength)*100).toFixed(0)}%)</h4></Link></td>
                 <td><Link to={{
                     pathname: "/data",
                     state: {
-                        data2: arr,
-                        topic: header,
-                        fine: "Yes"
+                        data2: props.arr,
+                        topic: header.key,
+                        fine: "Yes",
+                        month: props.month
                     },
                 }} ><h4 className={"alignCenter"}>{citations} ({((citations/totalCitations.length)*100).toFixed(0)}%)</h4></Link></td>
             </tr>

@@ -9,9 +9,8 @@ export default function DropBox(props){
 
 
     function onclick(item){
-        console.log(item)
-        setPlaceholder(item);
-        props.setTopic(item)
+        setPlaceholder(item.key);
+        props.setTopic(item.value)
     }
 
     function menu(){
@@ -21,7 +20,7 @@ export default function DropBox(props){
 
                     return (
                         <div className={"menuItem"} onClick={() => onclick(item)}>
-                            {item}
+                            {item.key}
                         </div>
                     )
                 })}

@@ -1,13 +1,96 @@
 import {June2021Concerns} from "../data/June2021Concerns";
 import {July2021Concerns} from "../data/July2021Concerns";
 
-export const allData = June2021Concerns.concat(July2021Concerns)
+import {April2021, AprilHeaders} from '../data/JS/April2021'
+import {August2021, AugustHeaders} from "../data/JS/August2021";
+import {February2021, FebruaryHeaders} from "../data/JS/February2021";
+import {July2021,JulyHeaders} from "../data/JS/July2021";
+import {March2021,MarchHeaders} from "../data/JS/March2021";
+import {May2021,MayHeaders} from "../data/JS/May2021";
+import {June2021,JuneHeaders} from "../data/JS/June2021";
 
-export function returnCount(arr){
+
+export const MonthArray = [
+    {arr: February2021, headers: FebruaryHeaders},
+    {arr: March2021, headers: MarchHeaders},
+    {arr: April2021, headers: AprilHeaders},
+    {arr: May2021, headers: MayHeaders},
+    {arr:June2021, headers: JuneHeaders},
+    {arr: July2021, headers: JulyHeaders},
+    {arr: August2021, headers: AugustHeaders}
+]
+
+
+export const allData = April2021;
+export const AllData = combine()
+
+
+function combine(){
+    const temp = MonthArray.map((month)=>{
+        return month.arr
+    })
+
+    return [].concat.apply([], temp);
+}
+
+
+export const UniqueHeaders = [
+    {key: "All",  value: "All"},
+    {key: "Noise/Party",  value: "Noise/Party"}
+    ,{key: "Parking",  value: "Parking"}
+    ,{key: "No License",  value: "No License"}
+    ,{key: "Over Occupancy",  value: "Over Occupancy"}
+    ,{key: "No In-person Check-in",  value: "No In-person Check-in"}
+    ,{key: "Spa after 10pm",  value: "Spa after 10pm"}
+    ,{key: "Delinquent TOT",  value: "Delinquent TOT"}
+    ,{key: "Trespassing",  value: "Trespassing"}
+    ,{key: "Noise/Party/spa",  value: "Noise/Party/spa"}
+    ,{key: "No Exterior Sign",  value: "No Exterior Sign"}
+    ,{key: "Advertising without a License",  value: "Advertising without a License"}
+    ,{key: "Advertising w/o a License",  value: "Advertising w/o a License"}
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+export function printer(month,arr){
+    console.log(month + " = \"" + returnHeaders(arr).join() + "\"")
+
+    const temp = returnHeaders(arr).map((header)=>{
+        return ("{ key: \"" + header + "\", value: \"" +   header + "\"}")
+    })
+
+    console.log(month)
+    console.log("[" + temp.join() + "]")
+}
+
+
+
+export function returnCount(arr) {
     let count = 0;
-    arr.forEach((item) =>{
-        item.Citations.forEach((citation)=>{
-            if(citation.CitationFineTotal !== 0){
+    arr.forEach((item) => {
+        item.Citations.forEach((citation) => {
+            if (citation.CitationFineTotal !== 0) {
                 count += 1;
             }
         })
@@ -15,10 +98,10 @@ export function returnCount(arr){
     return count;
 }
 
-export function returnCount2(arr){
+export function returnCount2(arr) {
     let count = 0;
-    arr.forEach((item) =>{
-        if(item.CitationFineTotal !== 0){
+    arr.forEach((item) => {
+        if (item.CitationFineTotal !== 0) {
             count += 1;
         }
     })
@@ -30,7 +113,7 @@ export function filterArray(arr, filter) {
     return arr.filter((item) => {
         if (item.ConcernType === filter) {
             return item;
-        }else{
+        } else {
             return null;
         }
     })
@@ -40,9 +123,9 @@ export function filterArray(arr, filter) {
 export function filterArrayCitation(arr, filter) {
 
     return arr.filter((item) => {
-        if ((item.ConcernType === filter)&&(item.CitationFineTotal > 0)) {
+        if ((item.ConcernType === filter) && (item.CitationFineTotal > 0)) {
             return item;
-        }else{
+        } else {
             return null;
         }
     })
@@ -54,7 +137,7 @@ export function returnCitations(arr) {
     return arr.filter((item) => {
         if (item.CitationFineTotal > 0) {
             return item;
-        }else{
+        } else {
             return null;
         }
     })
@@ -73,24 +156,24 @@ export function returnHeaders(arr) {
 
 export function totalFines(arr) {
     let result = 0;
-    arr.forEach((item)=>{
+    arr.forEach((item) => {
         result += item.CitationFineTotal;
     })
     return result;
 }
 
 
-export function allInOne(arr,headers){
+export function allInOne(arr, headers) {
     let results = []
 
-    headers.forEach((header)=>{
-        results.push( {key: header, values: []})
-        })
+    headers.forEach((header) => {
+        results.push({key: header, values: []})
+    })
 
-    arr.forEach((item)=> {
+    arr.forEach((item) => {
         // eslint-disable-next-line array-callback-return
-        results.some((result)=>{
-            if(result.key === item.ConcernType){
+        results.some((result) => {
+            if (result.key === item.ConcernType) {
                 result.values.push(item);
                 return true
             }
@@ -100,12 +183,15 @@ export function allInOne(arr,headers){
 }
 
 export function currencyFormat(num, position) {
-        return '$' + num.toFixed(position).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    return '$' + num.toFixed(position).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 }
-
 
 
 export const JuneTotalFines = totalFines(June2021Concerns)
 
 
 export const JulyTotalFines = totalFines(July2021Concerns)
+
+
+
+
