@@ -1,9 +1,7 @@
 import React from "react";
 import '../../css/header.css'
 import {Link} from "react-router-dom";
-import {June2021Concerns} from "../../data/June2021Concerns";
-import {July2021Concerns} from "../../data/July2021Concerns";
-import {allData} from "../Stats";
+import {AllData} from "../Stats";
 
 
 
@@ -24,7 +22,7 @@ export default function Header(){
                     <Link to={{
                         pathname: "/data",
                         state: {
-                            data2: (allData)
+                            data2: (AllData)
                         },
                     }} >Data</Link>
                 </div>
