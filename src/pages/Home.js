@@ -1,10 +1,9 @@
 import React from 'react'
 import '../css/styles.css'
 import {allSTR} from "../data/AllSTR";
-import {allCitations} from "../data/JS/allCitations";
 import {AllData} from "../components/Stats"
 import MonthSummary from "../components/MonthSummary";
-import { returnCount } from "../components/Stats";
+import { returnCount2 } from "../components/Stats";
 import {April2021, AprilHeaders} from '../data/JS/April2021'
 import {August2021, AugustHeaders} from "../data/JS/August2021";
 import {February2021, FebruaryHeaders} from "../data/JS/February2021";
@@ -22,10 +21,10 @@ export default function Home() {
         <div className={"page_container"}>
             <div className={"content_container"}>
                 <h1>Short Term Rentals Stats</h1>
-                <h3>2021 June-July</h3>
+                <h3>2021 February-August</h3>
                 <h3>Number of STRs: {allSTR.length}</h3>
                 <h3>Number of Reports: {AllData.length}</h3>
-                <h3>Number of Citations: {returnCount(allCitations)}</h3>
+                <h3>Number of Citations: {returnCount2(AllData)}</h3>
                 {MonthSummary({month: "February", arr:  February2021, headers: FebruaryHeaders})}
                 {MonthSummary({month: "March", arr:  March2021, headers: MarchHeaders})}
                 {MonthSummary({month: "April", arr:  April2021, headers: AprilHeaders})}
