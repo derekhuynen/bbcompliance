@@ -1,31 +1,156 @@
-.dataContainer{
+.BigBear {
+    border: 1px black solid;
+
+}
+
+.dataContainer {
     margin: auto auto;
-    border: 2px black solid;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
 }
 
-.table{
-
-}
-
-* > td{
-    margin: 0 10px 0 10px;
-    padding:  0 10px 0 10px;
-}
-
-* > .th{
-    text-align: left;
-}
 
 .headerDiv {
+    padding: 0;
+}
+
+.headerDiv > h4 {
+    margin: 0 0 5px 0;
     text-align: left;
-    padding: 0 10px 0 10px;
 }
 
 
-.headers{
+.headers {
+    flex: 100%;
+    display: flex;
+    width: 100%;
+    cursor: pointer;
+    border-bottom: 1px black solid;
+}
+
+.header-data {
+    flex: 100%;
+
 
 }
 
-.row{
+.data {
+    flex: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.row {
+    flex: auto;
+    display: flex;
+    cursor: pointer;
+}
+
+.row_data {
+    flex: auto;
+    border: 1px solid
 
 }
+
+
+.dataContainer {
+    padding: 10px;
+    width: calc(100% - 20px);
+    margin: auto auto;
+    max-width: 1200px
+}
+
+.DateEntered {
+    flex: 1 0 80px;
+    max-width: 100px;
+
+}
+
+.Disposition {
+    flex: 1 0 125px;
+}
+
+.ConcernAddress {
+    flex: 1 0 225px;
+
+}
+
+.ConcernType {
+    flex: 1 0 175px;
+
+}
+
+.CitationFineTotal {
+    flex: 0 0 50px;
+}
+
+.highlight {
+    background-color: black;
+    color: white;
+}
+
+
+.BCA {
+    flex: 1 1 100%;
+    margin: 0 10px 0 10px;
+}
+
+.VRR {
+    flex: 1 1 100%;
+    margin: 0 10px 0 10px;
+}
+
+.STRAddress {
+    flex: 1 1 100%;
+    margin: 0 10px 0 10px;
+    min-width: 300px;
+
+}
+
+.InspectionDate {
+    flex: 1 1 100%;
+    margin: 0 10px 0 10px;
+
+}
+
+
+@media only screen and (max-width: 700px) {
+
+    .DateEntered {
+        flex: 1 0 70px;
+        max-width: 100px;
+
+    }
+
+    .ConcernAddress {
+        flex: 1 0 190px;
+
+    }
+
+    .ConcernType {
+        flex: 1 0 150px;
+    }
+
+    .Disposition {
+        display: none;
+    }
+
+    .row > * {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+
+    .Disposition {
+        display: none;
+    }
+
+    .CitationFineTotal {
+        display: none;
+    }
+}
+

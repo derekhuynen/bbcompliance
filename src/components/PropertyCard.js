@@ -31,13 +31,13 @@ export default function PropertyCard(props) {
 
         return (
             <div className={"citation-container"}>
-                {data.Citations.map((citation,index) => {
+                {data.Citations.map((citation, index) => {
                         return (
                             <div className={"citations"} key={index}>
                                 <div className={"citation"}>
                                     <h4>Date: {citation.DateEntered}</h4>
                                     <h4>Complaint: {citation.ConcernType}</h4>
-                                    <h4>Fine: {currencyFormat(citation.CitationFineTotal,2)}</h4>
+                                    <h4>Fine: {currencyFormat(citation.CitationFineTotal, 2)}</h4>
                                 </div>
                                 <p>
                                     Description: {citation.ConcernDescription}

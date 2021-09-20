@@ -4,77 +4,80 @@
     max-width: 1200px;
 }
 
-.content_container{
+.content_container {
     width: calc(100% - 32px);
     margin: auto auto;
     padding: 15px;
 }
 
-* > h1{
+* > h1 {
     font-size: 30px;
     padding: 10px 0 0 0;
     margin: 10px 0 10px 0;
 }
-* > h2{
+
+* > h2 {
     font-size: 25px;
     padding: 0 0 0 0;
     margin: 10px 0 10px 0;
 }
-* > h3{
+
+* > h3 {
     font-size: 22px;
     padding: 0 0 0 0;
     margin: 5px 0 5px 0;
 }
-* > h4{
+
+* > h4 {
     font-size: 18px;
     padding: 0 0 0 0;
     margin: 8px 0 8px 0;
 }
 
-.right{
+.right {
     float: right;
 }
 
-.inline{
+.inline {
     display: inline;
 }
 
-.char25{
+.char25 {
     width: 24ch;
 }
 
-.marginLeft{
+.marginLeft {
     margin-left: 15px;
 }
 
-.month_box{
+.month_box {
     margin: 20px;
     border: 1px black solid;
     border-radius: 15px;
     padding: 0 20px 10px 20px;
 }
 
-.month_header{
+.month_header {
     margin: 10px 0px 0 0px;
     padding: 0px 0px 0px 0px;
 
 }
 
-td > h3{
+td > h3 {
     font-size: 20px;
     margin: 5px 0 5px 0;
     padding: 0 0 0 0;
 }
 
 
-.stats_box{
+.stats_box {
     margin: 10px 20px 10px 20px;
     padding: 5px 15px 5px 15px;
     border: 1px black solid;
     border-radius: 15px;
 }
 
-.stats_table{
+.stats_table {
     width: 100%;
     padding: 0px;
     margin: 0;
@@ -82,54 +85,56 @@ td > h3{
 }
 
 
-.alignLeft{
+.alignLeft {
     text-align: left;
 }
 
-.alignCenter{
+.alignCenter {
     text-align: center;
 }
 
 
-.drop_down_container{
+.drop_down_container {
     display: flex;
     margin: 0 0 10px 0;
 }
 
-.drop-down-data{
+.drop-down-data {
     display: flex;
     width: 300px;
     margin: 10px 10px 0 10px
 }
 
-.drop-down-name{
+.drop-down-name {
     flex: 25%
 }
 
-.search_box{
+.search_box {
     display: flex;
 }
 
-.input_box{
+.input_box {
     flex: 50%;
 }
 
 
-.info-bottom{
+.info-bottom {
     display: flex;
 
 }
 
-.fines{
+.fines {
     flex: 100%;
     min-width: 180px;
 }
-.source{
+
+.source {
     justify-content: right;
 
     flex: 100%;
 }
-.source > p{
+
+.source > p {
     text-align: right;
     padding: 10px 0 0 0;
     margin: 0;
@@ -138,49 +143,52 @@ td > h3{
 
 
 @media only screen and (max-width: 400px) {
-    * > h1{
+    * > h1 {
         font-size: 25px;
         padding: 0 0 0 0;
         margin: 10px 0 0 0;
     }
-    * > h2{
+
+    * > h2 {
         font-size: 20px;
         padding: 0 0 0 0;
         margin: 5px 0 0 0;
     }
-    * > h3{
+
+    * > h3 {
         font-size: 18px;
         padding: 0 0 0 0;
         margin: 5px 0 0 0;
     }
-    * > h4{
+
+    * > h4 {
         font-size: 16px;
         padding: 0 0 0 0;
         margin: 8px 0 8px 0;
     }
 
 
-    .month_box{
+    .month_box {
         margin: 5px;
         border: 1px black solid;
         border-radius: 15px;
         padding: 5px;
     }
 
-    .month_header{
+    .month_header {
         margin: 10px 5px 0 5px;
         padding: 0 0 0 0;
 
     }
 
-    .stats_box{
+    .stats_box {
         margin: 10px 5px 10px 5px;
         padding: 5px 5px 5px 5px;
         border: 1px black solid;
         border-radius: 15px;
     }
 
-    .char25{
+    .char25 {
         width: 20ch;
     }
 

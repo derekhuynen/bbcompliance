@@ -1,4 +1,4 @@
-.property_card{
+.property_card {
     background-color: lightgrey;
     padding: 5px 10px;
 }
@@ -22,7 +22,7 @@
 
 }
 
-.citation > h4{
+.citation > h4 {
     display: inline;
     margin: 0 5px 0 5px;
     font-size: 16px;

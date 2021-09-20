@@ -1,9 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {allSTR} from '../data/AllSTR'
-import DisplayData from "../components/DisplayData2";
-
+import DisplayData from "../components/DisplayData";
 const basicHeaders = [{key: "STRAddress", value: "Address"}, {key: "InspectionDate", value: "Date"}, {key: "BCA", value: "BCA"},{key: "VRR", value: "VRR"}]
-
 
 const filter = (rows, filterKey) => {
 
@@ -11,20 +9,15 @@ const filter = (rows, filterKey) => {
         return Object.values(row).some((s) =>
             ("" + s).toLowerCase().includes(filterKey.toLowerCase()));
     });
-
 }
 
-
 export default function STR() {
-
     const [data, setData] = useState(allSTR);
     const [inputFieldValue, setInputFieldValue] = useState("");
-
 
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
-
 
     return (
         <div className={"page-container"} >
@@ -36,7 +29,6 @@ export default function STR() {
                     value={inputFieldValue}
                     onChange={(e) => {
                         setInputFieldValue(e.target.value);
-
                     }}
                 />
             </div>

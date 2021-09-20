@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import '../css/displaydata.css'
 import PropertyCard from "./PropertyCard";
+import {currencyFormat} from "./Stats";
 
 const sortData = (
     data,
@@ -54,14 +55,20 @@ const getNextSortingDirection = (sortingDirection) => {
     return 'ASCENDING';
 };
 
+const filterArr = (arr, property) => {
+    return arr.filter((item) =>
+        (item !== property)
+    )
+}
+
 
 export default function DisplayData(props) {
     let data = props.data;
+    const canShow = props.canShow;
 
     const [sortingDirections, setSortingDirections] = useState({});
     const [showProperty, setShowProperty] = useState(false);
-    const [property, setProperty] = useState(data[0]);
-
+    const [properties, setProperties] = useState([]);
 
 
     useEffect(() => {
@@ -87,57 +94,59 @@ export default function DisplayData(props) {
 
 
     const onclick = (item) => {
-        console.log(item);
-        setProperty(item);
-        setShowProperty(true);
 
+        if (properties.includes(item)) {
+            setProperties(filterArr(properties, item))
+        } else {
+            properties.push(item)
+        }
+
+        setShowProperty(!showProperty);
     }
 
     return (
-        <>
-            <div className="BigBear">
+        <div className="BigBear">
+            <div className="dataContainer">
+                <div className={"headers"}>
+                    {props.headers.map(
+                        (header, headerIdx) => (
 
-                <div className="dataContainer">
-                    <table className="table">
-                        <thead>
-                        <tr>
-                            {props.headers.map(
-                                (header, headerIdx) => (
+                            <div className={header.key} key={headerIdx}
+                                 onClick={() => {
+                                     sortColumn(header.key);
+                                 }}>
+                                <div className="headerDiv">
+                                    <h4>{header.value}</h4>
+                                </div>
+                            </div>
+                        )
+                    )}
+                </div>
 
-                                    <th key={headerIdx}
-                                        onClick={() => {
-                                            sortColumn(header.key);
-                                        }}>
-                                        <div className="headerDiv">
-                                            {header.value}
-                                        </div>
-                                    </th>
-                                )
-                            )}
-                        </tr>
-
-                        </thead>
-                        <tbody>
-                        {data.map(
-                            (item, itemsIdx) => (
-                                <tr key={itemsIdx} onClick={ ()=> onclick(item)}>
+                <div className={"data"}>
+                    {data.map(
+                        (item, itemsIdx) => (
+                            <div>
+                                <div className={"row"} key={itemsIdx} onClick={() => onclick(item)}>
                                     {props.headers.map((header, headerIdx) => {
-                                            if (header.key === "ReferenceNumber") {
-                                                return <td key={headerIdx}>{item[header.key].replace("RAC-2021-", "")}</td>
+                                            if (header.key === "CitationFineTotal") {
+                                                return <div className={header.key}
+                                                            key={headerIdx}>{currencyFormat(item[header.key], 0)}</div>
                                             } else {
-                                                return <td key={headerIdx}>{item[header.key]}</td>
+                                                return <div className={header.key}
+                                                            key={headerIdx}>{item[header.key]}</div>
                                             }
+
                                         }
                                     )}
-                                </tr>
-                                )
-                        )}
-
-                        </tbody>
-                    </table>
-
+                                </div>
+                                {canShow && properties.includes(item) ?
+                                    <PropertyCard property={item} show={onclick}/> : null}
+                            </div>
+                        )
+                    )}
                 </div>
             </div>
-        </>
+        </div>
     );
 }

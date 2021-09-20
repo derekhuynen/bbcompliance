@@ -1,4 +1,4 @@
-.buttonKinda{
+.buttonKinda {
     border: 1px black solid;
     padding: 2px 3px 2px 3px;
     cursor: pointer;
@@ -6,7 +6,7 @@
     flex: 50%;
 }
 
-.menu{
+.menu {
     z-index: 90;
     background-color: lightgrey;
     position: absolute;
@@ -15,12 +15,12 @@
     width: 165px;
 }
 
-.menuItem{
+.menuItem {
     text-align: center;
     cursor: pointer;
 }
 
-.menuItem:hover{
+.menuItem:hover {
     background-color: white;
 
 }
