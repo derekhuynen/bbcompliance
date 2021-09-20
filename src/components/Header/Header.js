@@ -13,7 +13,6 @@ export default function Header(){
             <div className={"brand"}>
                 <h1>Big Bear Lake</h1>
             </div>
-
             <div className={"linkContainer"}>
                 <div className={"links"}>
                     <Link to='/'>Home</Link>
@@ -29,8 +28,6 @@ export default function Header(){
                 <div className={"links"}>
                     <Link to='/str'>STRs</Link>
                 </div>
-
-
                 <div className={"headerLeft"}>
                     <div className={"number"}>
 
