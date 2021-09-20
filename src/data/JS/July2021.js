@@ -1,4 +1,4 @@
-const JulyHeaders = [
+export const JulyHeaders = [
     {key: "Noise/Party", value: "Noise/Party"},
     {key: "Parking", value: "Parking"},
     {key: "Over Occupancy", value: "Over Occupancy"},
@@ -10,7 +10,7 @@ const JulyHeaders = [
     {key: "Advertising without a License", value: "Advertising without a License"}
 ]
 
-exports.July2021 = [
+export const July2021 = [
     {
         ReferenceNumber: "RAC-2021-01396",
         DateEntered: "7/31/2021",

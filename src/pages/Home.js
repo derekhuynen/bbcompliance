@@ -3,7 +3,7 @@ import '../css/styles.css'
 import {allSTR} from "../data/AllSTR";
 import {June2021Concerns} from "../data/June2021Concerns";
 import {July2021Concerns} from "../data/July2021Concerns";
-import {AllCitations} from "../data/AllConcerns";
+import {allCitations} from "../data/JS/allCitations";
 import MonthSummary from "../components/MonthSummary";
 import {
     printer2,
@@ -30,7 +30,7 @@ export default function Home() {
                 <h3>2021 June-July</h3>
                 <h3>Number of STRs: {allSTR.length}</h3>
                 <h3>Number of Reports: {June2021Concerns.concat(July2021Concerns).length}</h3>
-                <h3>Number of Citations: {returnCount(AllCitations)}</h3>
+                <h3>Number of Citations: {returnCount(allCitations)}</h3>
 
 
                 {MonthSummary({month: "February", arr:  February2021, headers: FebruaryHeaders})}

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react"
 import '../css/propertyCard.css'
-import {AllCitations} from '../data/AllConcerns'
+import {allCitations} from '../data/JS/allCitations'
 import {currencyFormat} from "./Stats";
 
 
@@ -17,7 +17,7 @@ export default function PropertyCard(props) {
 
     function search(address) {
         let result = {};
-        AllCitations.forEach((item) => {
+        allCitations.forEach((item) => {
             if (item.ConcernAddress === address) {
                 result = item
             }

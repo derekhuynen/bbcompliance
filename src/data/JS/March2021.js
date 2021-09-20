@@ -1,4 +1,4 @@
-const MarchHeaders = [
+export const MarchHeaders = [
     {key: "Noise/Party", value: "Noise/Party"},
     {key: "Parking", value: "Parking"},
     {key: "No License", value: "No License"},
@@ -10,7 +10,7 @@ const MarchHeaders = [
 ]
 
 
-exports.March2021 = [
+export const March2021 = [
     {
         ReferenceNumber: "RAC-2021-00322",
         DateEntered: "3/30/2021",
