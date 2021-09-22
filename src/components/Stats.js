@@ -64,6 +64,16 @@ export function returnCount2(arr) {
     return count;
 }
 
+export function verifiedReports(arr) {
+    let count = 0;
+    arr.forEach((item) => {
+        if (item.Disposition !== "No Issue") {
+            count += 1;
+        }
+    })
+    return count;
+}
+
 export function filterArray(arr, filter) {
 
     return arr.filter((item) => {

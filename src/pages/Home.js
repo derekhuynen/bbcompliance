@@ -1,7 +1,7 @@
 import React from 'react'
 import '../css/styles.css'
 import {allSTR} from "../data/AllSTR";
-import {AllData} from "../components/Stats"
+import {AllData, verifiedReports} from "../components/Stats"
 import MonthSummary from "../components/MonthSummary";
 import { returnCount2 } from "../components/Stats";
 import {April2021, AprilHeaders} from '../data/JS/April2021'
@@ -16,6 +16,10 @@ import {June2021,JuneHeaders} from "../data/JS/June2021";
 
 export default function Home() {
 
+    const reportsLength = AllData.length;
+    const verifiedReportsLength = verifiedReports(AllData);
+    const citationsLength = returnCount2(AllData)
+
 
     return (
         <div className={"page_container"}>
@@ -23,8 +27,9 @@ export default function Home() {
                 <h1>Short Term Rentals Stats</h1>
                 <h3>2021 February-August</h3>
                 <h3>Number of STRs: {allSTR.length}</h3>
-                <h3>Number of Reports: {AllData.length}</h3>
-                <h3>Number of Citations: {returnCount2(AllData)}</h3>
+                <h3>Reported Concerns: {reportsLength}</h3>
+                <h3>Verified Reports: {verifiedReportsLength} ({((verifiedReportsLength/reportsLength)*100).toFixed(0)}% Concerns are Verified)</h3>
+                <h3>Citations Issued: {citationsLength} ({((citationsLength/verifiedReportsLength)*100).toFixed(0)}% Verified Reports Receive a Citation)</h3>
                 {MonthSummary({month: "February", arr:  February2021, headers: FebruaryHeaders})}
                 {MonthSummary({month: "March", arr:  March2021, headers: MarchHeaders})}
                 {MonthSummary({month: "April", arr:  April2021, headers: AprilHeaders})}
