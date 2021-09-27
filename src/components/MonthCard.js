@@ -1,4 +1,5 @@
 import React from "react";
+import '../css/monthCard.css'
 
 
 export default function MonthCard(props){
