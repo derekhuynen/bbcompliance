@@ -16,7 +16,8 @@ export default function MonthCard(props){
 
                 </div>
                 <div className={"MonthCardLowerData"}>
-
+                    Reports: {props.reports}
+                    Citations: {props.citations}
                 </div>
             </div>
             <div className={"MonthCardFine"}>
